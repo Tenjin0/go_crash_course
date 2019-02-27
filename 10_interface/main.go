@@ -8,6 +8,28 @@ type VowelsFinder interface {
 	FindVowels() []rune
 }
 
+type SalaryInterface interface {
+	setSalary(salary int)
+	getSalary() int
+}
+
+type Person struct {
+	name   string
+	salary int
+}
+
+func (p *Person) setSalary(salary int) {
+	p.salary = salary
+}
+
+func (p Person) getSalary() int {
+	return p.salary
+}
+
+func printSalary(s SalaryInterface) {
+	fmt.Println("Salary", s.getSalary())
+}
+
 func find(element rune, listElement []rune) bool {
 
 	for i := 0; i < len(listElement); i++ {
@@ -34,6 +56,17 @@ func (ms MyString) FindVowels() []rune {
 	return vowels
 }
 
+type I interface {
+	M(name string)
+}
+type T struct {
+	name string
+}
+
+func (t *T) M(name string) {
+	t.name = name
+}
+
 func main() {
 
 	name := MyString("coucou")
@@ -41,4 +74,25 @@ func main() {
 	v = name
 	fmt.Printf("%c\n", name.FindVowels())
 	fmt.Printf("%c\n", v.FindVowels())
+	var patrice SalaryInterface = &Person{
+		name: "Patrice",
+	}
+
+	f := SalaryInterface.setSalary
+	f(patrice, 35000)
+	original, ok := patrice.(*Person)
+	if ok {
+		fmt.Println(original.salary)
+
+	}
+	printSalary(patrice)
+
+	var thomas SalaryInterface
+
+	thomas = &Person{
+		name: "Thomas",
+	}
+
+	thomas.setSalary(30000)
+	printSalary(thomas)
 }
