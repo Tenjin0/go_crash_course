@@ -67,6 +67,30 @@ func (t *T) M(name string) {
 	t.name = name
 }
 
+func describe(i interface{}) {
+
+	fmt.Printf("Type = %T, value = %v\n", i, i)
+}
+
+func assert(i interface{}) {
+
+	s, ok := i.(int)
+	if ok {
+		fmt.Println(s)
+	}
+}
+
+func findType(i interface{}) {
+	switch i.(type) {
+	case string:
+		fmt.Printf("It is a string: %s\n", i)
+	case int:
+		fmt.Printf("It is an int: %d\n", i)
+	default:
+		fmt.Printf("Unknown type\n")
+	}
+}
+
 func main() {
 
 	name := MyString("coucou")
@@ -95,4 +119,15 @@ func main() {
 
 	thomas.setSalary(30000)
 	printSalary(thomas)
+
+	var s interface{} = "Hello World"
+	var i interface{} = 55
+
+	describe(s)
+	describe(i)
+	assert(s)
+	assert(i)
+	findType(s)
+	findType(i)
+	findType(89.98)
 }
