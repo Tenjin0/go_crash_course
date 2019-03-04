@@ -32,6 +32,8 @@ func main() {
 	// square, cube := 500, 200
 	// fmt.Printf("square: %d + cube: %d = %d\n", square, cube, sumSquaresAndCubes(square, cube))
 
-	Buffered_channel()
+	// Buffered_channel()
+	// WaitGroup()
+	ExecuteWorkerPool()
 
 }
