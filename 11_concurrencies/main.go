@@ -29,7 +29,9 @@ func main() {
 	// fmt.Println("main terminated")
 
 	// channel()
-	square, cube := 500, 200
-	fmt.Printf("square: %d + cube: %d = %d\n", square, cube, sumSquaresAndCubes(square, cube))
+	// square, cube := 500, 200
+	// fmt.Printf("square: %d + cube: %d = %d\n", square, cube, sumSquaresAndCubes(square, cube))
+
+	Buffered_channel()
 
 }
