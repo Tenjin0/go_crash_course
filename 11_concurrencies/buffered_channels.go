@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func Buffered_channel() {
+func BuffereChannel() {
 
 	ch := make(chan string, 2)
 	fmt.Println("Length is", len(ch))
