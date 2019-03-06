@@ -38,4 +38,5 @@ func main() {
 	// Select()
 	CritalSectionWithoutMutex()
 	CritalSectionWithMutex()
+	CriticalSectionWithChan()
 }
