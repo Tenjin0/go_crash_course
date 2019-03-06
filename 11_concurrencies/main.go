@@ -35,5 +35,7 @@ func main() {
 	// Buffered_channel()
 	// WaitGroup()
 	// ExecuteWorkerPool(10, 10)
-	Select()
+	// Select()
+	CritalSectionWithoutMutex()
+	CritalSectionWithMutex()
 }
