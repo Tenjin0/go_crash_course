@@ -21,6 +21,7 @@ func Select() {
 	output2 := make(chan string)
 	go server1(output1)
 	go server2(output2)
+
 loop:
 	for {
 		time.Sleep(1 * time.Second)
