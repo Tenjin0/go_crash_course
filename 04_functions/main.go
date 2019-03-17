@@ -30,8 +30,8 @@ func random(absMax int) int {
 func variadicFun(first int, num ...int) {
 	fmt.Printf("first element: %d, rest: %v, type of rest: %T\n", first, num, num)
 	num[0] = 99
-	num = append(num, 100)
-	// num = append(num, 101)
+	num = append(num, 100) // work if not change the length
+	num = append(num, 101)
 }
 
 func main() {
@@ -42,10 +42,10 @@ func main() {
 	fmt.Printf("Area %f, Perimeter %f\n", area, perimeter)
 	fmt.Printf("random: %d\n", random(2))
 	a := make([]int, 3, 10)
-
+	b := make([]int, 3, 10)
 	variadicFun(1, 2, 3)
 	variadicFun(1, a[0:2]...)
 	fmt.Println("variadic function with slice passed in parameters", a, "( change slice inside the function!)")
-	variadicFun(1, a...)
-	fmt.Println("variadic function with slice passed in parameters", a, "( change slice inside the function!)")
+	variadicFun(1, b...)
+	fmt.Println("variadic function with slice passed in parameters", b, "( change slice inside the function!)")
 }
