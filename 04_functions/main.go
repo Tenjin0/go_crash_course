@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"reflect"
 	"time"
 )
 
@@ -34,6 +35,12 @@ func variadicFun(first int, num ...int) {
 	num = append(num, 101)
 }
 
+func variadicFunWithAnyParams(i ...interface{}) {
+	for _, v := range i {
+		fmt.Println(v, "--", reflect.ValueOf(v).Kind())
+	}
+}
+
 func main() {
 
 	area, perimeter, _ := rectProps(10.8, 5.6)
@@ -48,4 +55,6 @@ func main() {
 	fmt.Println("variadic function with slice passed in parameters", a, "( change slice inside the function!)")
 	variadicFun(1, b...)
 	fmt.Println("variadic function with slice passed in parameters", b, "( change slice inside the function!)")
+	variadicFunWithAnyParams(1, "red", true, 10.5, []string{"foo", "bar", "baz"},
+		map[string]int{"apple": 23, "tomato": 13})
 }
