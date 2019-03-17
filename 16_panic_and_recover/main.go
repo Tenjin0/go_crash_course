@@ -8,6 +8,7 @@ type Person struct {
 }
 
 func (p *Person) changeName(firstname *string, lastname *string) {
+
 	defer fmt.Println("deferred call in fullName")
 	if firstname == nil {
 		panic("runtime error: first name cannot be nil")
