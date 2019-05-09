@@ -54,11 +54,7 @@ func MaxRot(number int64) int64 {
 
 	digits := numberToDigits(number)
 
-	digits = rotate(digits)
-
-	max = Max(max, digitsToNumer(digits))
-
-	for i := 1; i < len(digits)-1; i++ {
+	for i := 0; i < len(digits)-1; i++ {
 		digits = append(digits[:i], rotate(digits[i:])...)
 		max = Max(max, digitsToNumer(digits))
 	}
