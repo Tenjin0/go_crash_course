@@ -3,7 +3,9 @@ package rotateformax
 // https://www.codewars.com/kata/56a4872cbb65f3a610000026/solutions/go
 
 import (
+	"fmt"
 	"math"
+	"strconv"
 )
 
 func rotate(digits []int) []int {
@@ -59,5 +61,19 @@ func MaxRot(number int64) int64 {
 		max = Max(max, digitsToNumer(digits))
 	}
 
+	return max
+}
+
+func MaxRot2(n int64) int64 {
+
+	max, rot := n, strconv.FormatInt(n, 10)
+	for i := 0; i < len(rot); i++ {
+		fmt.Println(rot, rot[:i], rot[i+1:], rot[i:i+1])
+		rot = rot[:i] + rot[i+1:] + rot[i:i+1]
+		num, _ := strconv.ParseInt(rot, 10, 64)
+		if num > max {
+			max = num
+		}
+	}
 	return max
 }
