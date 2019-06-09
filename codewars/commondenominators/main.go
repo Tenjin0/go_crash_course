@@ -9,7 +9,7 @@ import (
 // example: https://www.youtube.com/watch?v=WdsvijS5MRA
 // lcm: https://siongui.github.io/2017/06/03/go-find-lcm-by-gcd/
 
-// Pgcd is used to find the pgcd between two numbers
+// GCD is used to find the pgcd between two numbers
 func GCD(a, b int) int {
 
 	var sup, inf int
@@ -33,6 +33,7 @@ func GCD(a, b int) int {
 	return sup
 }
 
+// LCM is least common multiple
 func LCM(a, b int, integers ...int) int {
 
 	result := a * b / GCD(a, b)
@@ -43,6 +44,7 @@ func LCM(a, b int, integers ...int) int {
 	return result
 }
 
+// SameDenominator is
 func SameDenominator(lst [][]int) [][]int {
 
 	var denominators []int
