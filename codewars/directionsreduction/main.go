@@ -21,11 +21,10 @@ func DirReduc(arr []string) []string {
 	for {
 		if i+1 < len(arr) && isTwoDirectionOpposite(arr[i], arr[i+1]) {
 			arr = removeElements(arr, i)
-
 			if i > 0 {
 				i--
-				continue
 			}
+			continue
 		}
 		if i < len(arr)-1 {
 			i++
@@ -33,13 +32,19 @@ func DirReduc(arr []string) []string {
 			break
 		}
 	}
+
+	if len(arr) == 0 {
+		return []string{""}
+	}
 	return arr[:]
 }
 
 func main() {
-	entryArr := []string{"NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"}
+	// entryArr := []string{"NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"}
+	// entryArr := []string{"EAST", "WEST", "EAST", "WEST", "NORTH", "EAST", "WEST", "NORTH", "EAST"}
+	entryArr := []string{"EAST", "WEST", "NORTH", "NORTH", "SOUTH", "SOUTH", "WEST", "NORTH", "SOUTH", "SOUTH", "NORTH", "EAST", "SOUTH", "NORTH"}
 
 	outArr := DirReduc(entryArr)
 
-	fmt.Println(outArr)
+	fmt.Println(outArr, len(outArr), cap(outArr))
 }
